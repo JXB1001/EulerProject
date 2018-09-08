@@ -4,9 +4,11 @@
 # Find the sum of all the multiples of 3 or 5 below 1000.
 #
 
-def findAnswer(n):
-    """ Returns the sum of all the multiples of 3 or 5 under input n. """
+import timeit
 
+def findAnswer():
+    """ Returns the sum of all the multiples of 3 or 5 under input 1000 """
+    n = 1000
     s = 0 
 
     for i in range(n):
@@ -20,9 +22,15 @@ def findAnswer(n):
 
 def main():
     """ Main Function """
-    
-    answer = findAnswer(1000)
-    print(answer)
+
+    # finding the answer
+    answer = findAnswer()
+    # testing the speed of the methods
+    t = timeit.timeit(findAnswer, number=1000)
+
+    print("Answer = " + str(answer))
+    print("\nTime taken to do function 1000 times")
+    print("\tMethod 1: " + str(t))
 
 
 if __name__ == "__main__":
